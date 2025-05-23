@@ -16,4 +16,12 @@ function createGrid(gridsize, squareSize) {
     }
 }
 
-createGrid(16, 50)
+createGrid(16, 50) // Create the divs first
+
+const divs = container.querySelectorAll("div") // Now they exist
+
+divs.forEach((div) => {
+    div.addEventListener("mouseenter", () => {
+        div.style.backgroundColor = "blue"
+    })
+})
