@@ -1,10 +1,15 @@
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
+    width: 960px;
     margin: 20px auto;
 }
 
 #container div {
     box-sizing: border-box;
+}
+
+#reset-btn {
+    display: block;
+    margin: auto;
 }

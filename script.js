@@ -1,4 +1,6 @@
 container = document.querySelector("#container")
+reset_btn = document.querySelector("#reset-btn")
+const CONTAINER_SIZE = 960;
 
 function createSquareDiv(size) {
     const div = document.createElement("div")
@@ -9,19 +11,27 @@ function createSquareDiv(size) {
     return div
 }
 
-function createGrid(gridsize, squareSize) {
+function createGrid(gridsize) {
+    container.innerHTML = "";
+    const squareSize = CONTAINER_SIZE / gridsize;
     for (let i = 0; i < gridsize * gridsize; i++) {
         const square = createSquareDiv(squareSize)
+        square.addEventListener("mouseenter", () => {
+            square.style.backgroundColor = "blue"
+        })
         container.appendChild(square)
     }
 }
 
-createGrid(16, 50) // Create the divs first
+createGrid(16, 50) 
 
-const divs = container.querySelectorAll("div") // Now they exist
-
-divs.forEach((div) => {
-    div.addEventListener("mouseenter", () => {
-        div.style.backgroundColor = "blue"
-    })
+reset_btn.addEventListener("click", () => {
+    let size = prompt("Enter the number of squares per side (max 100):")
+    size = parseInt(size)
+    if (size && size > 0 && size <= 100) {
+        createGrid(size)
+    } else {
+        alert("Please enter a valid number between 1 and 100.")
+    }
 })
+
