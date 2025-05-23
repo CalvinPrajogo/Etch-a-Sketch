@@ -16,4 +16,4 @@ function createGrid(gridsize, squareSize) {
     }
 }
 
-createGrid(16, 30)
+createGrid(16, 50)
